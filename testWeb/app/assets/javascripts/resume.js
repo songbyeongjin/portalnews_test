@@ -27,6 +27,7 @@
 
 })(jQuery); // End of use strict
 
+/*
 $(function () {
   $('#nate_refresh').click(function () {
       $.ajax({
@@ -55,3 +56,4 @@ $(function () {
         })
   });
 });
+*/
