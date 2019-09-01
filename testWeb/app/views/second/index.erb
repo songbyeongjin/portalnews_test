@@ -1,60 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Resume - Start Bootstrap Theme</title>
-
-    <!-- Use asset -->
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'bootstrap', media: 'all','data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag    'resume', media: 'all','data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'bootstrap','data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'jquery','data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'jquery.easing','data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'resume','data-turbolinks-track' => true %>
-
-</head>
-
-<body id="page-top">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">News Portal</span>
-      <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="/myphoto.png" alt="">
-      </span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#nate">Nate</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#education">.</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#skills">.</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#interests">.</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#awards">.</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<%= render 'header_navi' %>
 
   <div class="container-fluid p-0">
 
@@ -66,7 +10,7 @@
         <div class="subheading mb-5">Ranking News Collection on Portal Site
           <a href="mailto:name@email.com">song4489z@naver.com</a>
         </div>
-        <p class="lead mb-3">Let's watch the news quickly and easily</p>
+        <p class="lead mb-3">Let's check the news quickly and easily</p>
         <p class="lead mb-3">Currently, we are serving the portal news shown below<br>If you want to go to the portal, click on the icon.</p>
         <div class="portal-icons">
           <a href="#">
@@ -111,33 +55,22 @@
 
     <hr class="m-0">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="daum">
       <div class="w-100">
-        <h2 class="mb-5">Education</h2>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+        <h2 class="mb-2">DAUM</h2>
+        <button type="button" id="nate_refresh" class="btn btn-primary mb-2" onclick="window.location.href='/second/index#nate'">News Refresh</button>
+        <%for index in 0..(@len.to_i-1)%>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-            <h3 class="mb-0">University of Colorado Boulder</h3>
-            <div class="subheading mb-3">Bachelor of Science</div>
-            <div>Computer Science - Web Development Track</div>
-            <p>GPA: 3.23</p>
+            <a href="<%=@daum_url_crwal.at(index)%>"><h5 class="mb-0"><%=@daum_title_crwal.at(index)%></h5></a>
+            <div class="subheading cor"><%=@daum_cor_crwal.at(index)%></div>
+            <p><%=@daum_content_crwal.at(index)%></p>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary">August 2006 - May 2010</span>
+            <span class="text-primary"><%=@daum_date_crwal.at(index)%></span>
           </div>
         </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 class="mb-0">James Buchanan High School</h3>
-            <div class="subheading mb-3">Technology Magnet Program</div>
-            <p>GPA: 3.56</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2002 - May 2006</span>
-          </div>
-        </div>
-
+        <%end%>
       </div>
     </section>
 

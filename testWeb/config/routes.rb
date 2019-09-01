@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   get '/second/index' => 'second#index'
+  get '/second/nate' => 'second#nate'
   get '/second/index/naterefresh' => 'second#naterefresh'
   get '/second/:name' => 'second#name'
 end
