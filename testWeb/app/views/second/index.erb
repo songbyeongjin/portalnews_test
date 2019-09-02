@@ -1,20 +1,18 @@
 <%= render 'header_navi' %>
-
   <div class="container-fluid p-0">
-
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
         <h1 class="mb-0">NEWS
           <span class="text-primary">PORTAL</span>
         </h1>
         <div class="subheading mb-5">Ranking News Collection on Portal Site
-          <a href="mailto:name@email.com">song4489z@naver.com</a>
+          <a href="mailto:name@email.com">Developed By SBJ</a>
         </div>
         <p class="lead mb-3">Let's check the news quickly and easily</p>
         <p class="lead mb-3">Currently, we are serving the portal news shown below<br>If you want to go to the portal, click on the icon.</p>
         <div class="portal-icons">
           <a href="#">
-            <i class="nate"><img class="img-fluid rounded-circle mx-auto mb-2" src="/nate.png" alt=""></i>
+            <i class="nate"><!--<img class="img-fluid rounded-circle mx-auto mb-2" src="/nate.png" alt=""></i>-->
           </a>
           <a href="#">
             <i class="fab fa-github"></i>
@@ -41,7 +39,7 @@
         <%for index in 0..(@len.to_i-1)%>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-            <a href="<%=@url_crwal.at(index)%>"><h5 class="mb-0"><%=@title_crwal.at(index)%></h5></a>
+            <h5 class="mb-0" onclick="window.open('<%=@url_crwal.at(index)%>', '_blank')"><%=@title_crwal.at(index)%></h5>
             <div class="subheading cor"><%=@cor_crwal.at(index)%></div>
             <p><%=@content_crwal.at(index)%></p>
           </div>
@@ -58,11 +56,11 @@
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="daum">
       <div class="w-100">
         <h2 class="mb-2">DAUM</h2>
-        <button type="button" id="nate_refresh" class="btn btn-primary mb-2" onclick="window.location.href='/second/index#nate'">News Refresh</button>
+        <button type="button" id="nate_refresh" class="btn btn-primary mb-2" onclick="window.location.href='/second/index#daum'">News Refresh</button>
         <%for index in 0..(@len.to_i-1)%>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-            <a href="<%=@daum_url_crwal.at(index)%>"><h5 class="mb-0"><%=@daum_title_crwal.at(index)%></h5></a>
+            <h5 class="mb-0" onclick="window.open('<%=@daum_url_crwal.at(index)%>', '_blank')"><%=@naver_title_crwal.at(index)%></h5>
             <div class="subheading cor"><%=@daum_cor_crwal.at(index)%></div>
             <p><%=@daum_content_crwal.at(index)%></p>
           </div>
@@ -76,6 +74,27 @@
 
     <hr class="m-0">
 
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="naver">
+      <div class="w-100">
+        <h2 class="mb-2">NAVER</h2>
+        <button type="button" id="nate_refresh" class="btn btn-success mb-2" onclick="window.location.href='/second/index#naver'">News Refresh</button>
+        <%for index in 0..(@len.to_i-1)%>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+          <div class="resume-content">
+             <h5 class="mb-0" onclick="window.open('<%=@naver_url_crwal.at(index)%>', '_blank')"><%=@naver_title_crwal.at(index)%></h5>
+            <div class="subheading cor"><%=@naver_cor_crwal.at(index)%></div>
+            <p><%=@naver_content_crwal.at(index)%></p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary"><%=@naver_date_crwal.at(index)%></span>
+          </div>
+        </div>
+        <%end%>
+      </div>
+    </section>
+
+    <hr class="m-0">
+    
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
       <div class="w-100">
         <h2 class="mb-5">Skills</h2>
