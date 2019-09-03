@@ -18,56 +18,32 @@ NAVER_URL = "https://news.naver.com/main/ranking/popularDay.nhn?rankingType=age&
 class SecondController < ApplicationController
     def index
         ###################################################NATE#############################################
-        list_crwal_title = []       #<!記事タイトル
-        list_crwal_url = []         #<!記事URL
-        list_crwal_cor_date = []    #<!取材社名・記事の日付
-        list_crwal_cor = []         #<!取材社名
-        list_crwal_date = []        #<!記事の日付
-        list_crwal_content = []     #<!記事の本文
+        nate_crwal_title = []       #<!記事タイトル
+        nate_crwal_url = []         #<!記事URL
+        nate_crwal_cor = []         #<!取材社名
+        nate_crwal_date = []        #<!記事の日付
+        nate_crwal_content = []     #<!記事の本文
 
         nate_url_prefix = "https:"
         news_len = 5;
 
-        #指定したURLから記事をcrwalし、必要な要素を抽出する
-        doc = Nokogiri::HTML(open(NATE_URL))
-        doc.css('.mlt01').each do |element|
-            #タイトル抽出
-            list_crwal_title.push(element.css('.tit').text[0..-1])#<!2行にならないように文字制限
-            #取材社名・日付抽出
-            list_crwal_cor_date.push(element.css('.medium').text)
-            #URL抽出
-            list_crwal_url.push(element.css('a').first["href"])
-        end
-
-        #取材社名と日付を分ける
-        for cor_date in list_crwal_cor_date
-            #"2019-"を前後に分ける"
-            cor_date_boundary = cor_date.index(DATE_BOUNDARY_STR)
-            list_crwal_cor.push(cor_date[0..cor_date_boundary-1])
-            list_crwal_date.push(cor_date[cor_date_boundary..-1])
-        end
-
-        #取得した記事数
+        #nate url取得
+        nate_crwal_url = get_nate_url(NATE_URL)
 
         for index in 0..news_len-1
-            temp_contents = []
-            doc = Nokogiri::HTML(open(nate_url_prefix + list_crwal_url.at(index)))
-            doc.css('#realArtcContents').each do |element|
-                temp_content = element.text.squish#0..CONTENT_MAX_LEN]#<!"¥n"を削除し、文字数を制限する
-                temp_contents.push(temp_content)
-                end
-            #リストを文字列に型変換
-            trimminged_content = temp_contents.join
-            trimminged_content = trimminged_content[0..CONTENT_MAX_LEN] + NOT_END_STR
-            list_crwal_content.push(trimminged_content)
+            doc = Nokogiri::HTML(open(nate_url_prefix + nate_crwal_url.at(index)))
+            nate_crwal_title.push(get_nate_title(doc))
+            nate_crwal_content.push(get_nate_content(doc))
+            nate_crwal_date.push(get_nate_date(doc))
+            nate_crwal_cor.push(get_nate_cor(doc))
         end
 
         #パラメーターを渡す
-        @title_crwal = list_crwal_title
-        @cor_crwal = list_crwal_cor
-        @date_crwal = list_crwal_date
-        @url_crwal = list_crwal_url
-        @content_crwal = list_crwal_content
+        @nate_title    =   nate_crwal_title
+        @nate_cor      =   nate_crwal_cor
+        @nate_date     =   nate_crwal_date
+        @nate_url      =   nate_crwal_url
+        @nate_content  =   nate_crwal_content
         
 
         ###################################################DAUM#############################################
@@ -164,8 +140,51 @@ class SecondController < ApplicationController
         @len = 5
     end
 
-    def nate
+    def get_nate_url(nate_url)
+        nate_crwal_url = []
+        doc = Nokogiri::HTML(open(nate_url))
+        doc.css('.mlt01').each do |element|
+            #URL抽出
+            nate_crwal_url.push(element.css('a').first["href"])
+        end
+        return nate_crwal_url
+    end
 
+    def get_nate_content(doc)
+        temp_contents = []
+        doc.css('#realArtcContents').each do |element|
+            temp_content = element.text.squish#0..CONTENT_MAX_LEN]#<!"¥n"を削除し、文字数を制限する
+            temp_contents.push(temp_content)
+        end
+        #リストを文字列に型変換
+        trimminged_content = temp_contents.join
+        trimminged_content = trimminged_content[0..CONTENT_MAX_LEN] + NOT_END_STR
+        return trimminged_content
+    end
+
+    def get_nate_title(doc)
+        temp_title = ""
+        doc.css('.articleSubecjt').each do |element|
+            temp_title = element.text[0..-1]#<!2行にならないように文字制限
+        end
+        return temp_title
+    end
+
+    def get_nate_date(doc)
+        temp_date = ""
+        doc.css('.firstDate em').each do |element|
+            temp_date = element.text
+        end
+        cor_date_boundary = temp_date.index(DATE_BOUNDARY_STR)
+        return temp_date[cor_date_boundary..9]
+    end
+
+    def get_nate_cor(doc)
+        temp_cor = ""
+        doc.css('.articleInfo .medium').each do |element|
+            temp_cor = element.text
+        end
+        return temp_cor
     end
 
     def naterefresh
