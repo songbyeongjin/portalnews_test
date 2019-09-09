@@ -60,7 +60,7 @@
         <%for index in 0..(@len.to_i-1)%>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-            <h5 class="mb-0" onclick="window.open('<%=@daum_url_crwal.at(index)%>', '_blank')"><%=@naver_title_crwal.at(index)%></h5>
+            <h5 class="mb-0" onclick="window.open('<%=@daum_url_crwal.at(index)%>', '_blank')"><%=@daum_title_crwal.at(index)%></h5>
             <div class="subheading cor"><%=@daum_cor_crwal.at(index)%></div>
             <p><%=@daum_content_crwal.at(index)%></p>
           </div>

@@ -5,6 +5,7 @@ require 'open-uri'
 NOT_END_STR = "[MORE...]"
 
 CONTENT_MAX_LEN = 200
+NEWS_LEN = 5
 DATE_BOUNDARY_STR = "2019"#<!年が経つと要変更
 
 #dateパラメーターが現在日・時間より遅く設定されると現在日・時間に繋がるため、2099年99月99日に設定する
@@ -25,12 +26,12 @@ class SecondController < ApplicationController
         nate_crwal_content = []     #<!記事の本文
 
         nate_url_prefix = "https:"
-        news_len = 5;
+        
 
         #nate url取得
         nate_crwal_url = get_nate_url(NATE_URL)
 
-        for index in 0..news_len-1
+        for index in 0..NEWS_LEN-1
             doc = Nokogiri::HTML(open(nate_url_prefix + nate_crwal_url.at(index)))
             nate_crwal_title.push(get_nate_title(doc))
             nate_crwal_content.push(get_nate_content(doc))
@@ -53,37 +54,16 @@ class SecondController < ApplicationController
         daum_crwal_cor = []         #<!取材社名
         daum_crwal_date = []        #<!記事の日付
 
-        #指定したURLから記事をcrwalし、必要な要素を抽出する
-        doc = Nokogiri::HTML(open(DAUM_URL))
-        doc.css('.list_news2 li').each do |element|
-            #URL抽出
-            daum_crwal_url.push(element.css('a').first["href"])
-        end
-        doc.css('.info_news').each do |element|
-            #URL抽出
-            daum_crwal_cor.push(element.text)
-        end
+        #get 記事URL and 取材社名
+        urlCor = get_daum_url_cor(DAUM_URL)
+        daum_crwal_url = urlCor[0]
+        daum_crwal_cor = urlCor[1]
 
-
-        #取得した記事数
-        news_len = 5
-        str = ""
-        for index in 0..5
-            temp_contents = []
+        for index in 0..NEWS_LEN
             doc = Nokogiri::HTML(open(daum_crwal_url.at(index)))
-            doc.css('.tit_view').each do |element|
-                daum_crwal_title.push(element.text)
-            end
-            doc.css('.info_view span:nth-child(2)').each do |element|
-                cor_date_boundary = element.text.index(DATE_BOUNDARY_STR)
-                daum_crwal_date.push(element.text[cor_date_boundary..12])
-            end
-            doc.css('#harmonyContainer p').each do |element|
-                temp_contents.push(element.text)
-            end
-            trimminged_content = temp_contents.join
-            trimminged_content += NOT_END_STR
-            daum_crwal_content.push(trimminged_content[0..CONTENT_MAX_LEN] + NOT_END_STR)
+            daum_crwal_title.push(get_daum_title(doc))
+            daum_crwal_date.push(get_daum_date(doc))
+            daum_crwal_content.push(get_daum_content(doc))
         end
         @daum_title_crwal   =   daum_crwal_title
         @daum_cor_crwal     =   daum_crwal_cor
@@ -108,7 +88,7 @@ class SecondController < ApplicationController
             naver_crwal_url.push(naver_url_prefix + element.css('a').first["href"])
         end
 
-        for index in 0..news_len-1
+        for index in 0..NEWS_LEN-1
             temp_content = ""
             doc = Nokogiri::HTML(open(naver_crwal_url.at(index)))
             doc.css('#articleBodyContents').each do |element|
@@ -187,6 +167,56 @@ class SecondController < ApplicationController
         return temp_cor
     end
 
+    #指定したURLから記事をcrwalし、必要な要素を抽出する
+    #return urlリスト,corsリスト
+    def get_daum_url_cor(daum_url)
+        urlCor = []
+        daum_crwal_url = []
+        daum_crwal_cor = []
+        doc = Nokogiri::HTML(open(daum_url))
+        doc.css('.list_news2 li').each do |element|
+            #URL抽出
+            daum_crwal_url.push(element.css('a').first["href"])
+        end
+        #url追加
+        urlCor.push(daum_crwal_url)
+        doc.css('.info_news').each do |element|
+            #取材会社抽出
+            daum_crwal_cor.push(element.text)
+        end
+        #取材会社追加
+        urlCor.push(daum_crwal_cor)
+    end
+
+    def get_daum_title(doc)
+        daum_crwal_title = ""
+        doc.css('.tit_view').each do |element|
+            daum_crwal_title = element.text
+        end
+        return daum_crwal_title
+    end
+
+    def get_daum_date(doc)
+        daum_crwal_date = ""
+        doc.css('.info_view span:nth-child(2)').each do |element|
+            cor_date_boundary = element.text.index(DATE_BOUNDARY_STR)
+            daum_crwal_date = element.text[cor_date_boundary..12]
+        end
+        return daum_crwal_date
+    end
+    
+    def get_daum_content(doc)
+        temp_contents = []
+        daum_crwal_content = ""
+        doc.css('#harmonyContainer p').each do |element|
+            temp_contents.push(element.text)
+        end
+        trimminged_content = temp_contents.join
+        trimminged_content += NOT_END_STR
+        daum_crwal_content = trimminged_content[0..CONTENT_MAX_LEN] + NOT_END_STR
+        return daum_crwal_content
+    end
+    
     def naterefresh
         @content = "successRet"
         render json: {data:@content}
