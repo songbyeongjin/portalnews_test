@@ -39,12 +39,12 @@
         <%for index in 0..(@len.to_i-1)%>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-            <h5 class="mb-0" onclick="window.open('<%=@nate_url.at(index)%>', '_blank')"><%=@nate_title.at(index)%></h5>
-            <div class="subheading cor"><%=@nate_cor.at(index)%></div>
-            <p><%=@nate_content.at(index)%></p>
+            <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+            <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+            <p><%=@nate_news.at(index).content%></p>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary"><%=@nate_date.at(index)%></span>
+            <span class="text-primary"><%=@nate_news.at(index).date.strftime("%Y-%m-%d")%></span>
           </div>
         </div>
         <%end%>

@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'date'
 
 #定数定義
 NOT_END_STR = "[MORE...]"
@@ -19,34 +20,29 @@ NAVER_URL = "https://news.naver.com/main/ranking/popularDay.nhn?rankingType=age&
 class SecondController < ApplicationController
     def index
         ###################################################NATE#############################################
-        nate_crwal_title = []       #<!記事タイトル
         nate_crwal_url = []         #<!記事URL
-        nate_crwal_cor = []         #<!取材社名
-        nate_crwal_date = []        #<!記事の日付
-        nate_crwal_content = []     #<!記事の本文
-
         nate_url_prefix = "https:"
-        
+        nate_news = []
 
         #nate url取得
         nate_crwal_url = get_nate_url(NATE_URL)
 
         for index in 0..NEWS_LEN-1
-            doc = Nokogiri::HTML(open(nate_url_prefix + nate_crwal_url.at(index)))
-            nate_crwal_title.push(get_nate_title(doc))
-            nate_crwal_content.push(get_nate_content(doc))
-            nate_crwal_date.push(get_nate_date(doc))
-            nate_crwal_cor.push(get_nate_cor(doc))
+            #create temp nate news instance
+            news = News.new
+            url = nate_url_prefix + nate_crwal_url.at(index)
+            puts url
+            doc = Nokogiri::HTML(open(url))
+            news.url       = url
+            news.title     = get_nate_title(doc)
+            news.content   = get_nate_content(doc)
+            news.date      = get_nate_date(doc)
+            news.press     = get_nate_cor(doc)
+            #add nate news
+            nate_news.push(news)
         end
-
-        #パラメーターを渡す
-        @nate_title    =   nate_crwal_title
-        @nate_cor      =   nate_crwal_cor
-        @nate_date     =   nate_crwal_date
-        @nate_url      =   nate_crwal_url
-        @nate_content  =   nate_crwal_content
+        @nate_news = nate_news
         
-
         ###################################################DAUM#############################################
         daum_crwal_title = []       #<!記事タイトル
         daum_crwal_url = []         #<!記事URL
@@ -156,7 +152,8 @@ class SecondController < ApplicationController
             temp_date = element.text
         end
         cor_date_boundary = temp_date.index(DATE_BOUNDARY_STR)
-        return temp_date[cor_date_boundary..9]
+        date = DateTime.parse(temp_date[cor_date_boundary..9])
+        return date
     end
 
     def get_nate_cor(doc)
@@ -216,7 +213,17 @@ class SecondController < ApplicationController
         daum_crwal_content = trimminged_content[0..CONTENT_MAX_LEN] + NOT_END_STR
         return daum_crwal_content
     end
-    
+
+    def get_naver_url(naver_url)
+        naver_crwal_url = []
+        doc = Nokogiri::HTML(open(naver_url))
+        doc.css('.ranking_list li').each do |element|
+            #URL抽出
+            naver_crwal_url.push(naver_url_prefix + element.css('a').first["href"])
+        end
+        return naver_crwal_url
+    end
+
     def naterefresh
         @content = "successRet"
         render json: {data:@content}
