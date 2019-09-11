@@ -60,12 +60,12 @@
         <%for index in 0..(@len.to_i-1)%>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-            <h5 class="mb-0" onclick="window.open('<%=@daum_url_crwal.at(index)%>', '_blank')"><%=@daum_title_crwal.at(index)%></h5>
-            <div class="subheading cor"><%=@daum_cor_crwal.at(index)%></div>
-            <p><%=@daum_content_crwal.at(index)%></p>
+            <h5 class="mb-0" onclick="window.open('<%=@daum_news.at(index).url%>', '_blank')"><%=@daum_news.at(index).title%></h5>
+            <div class="subheading cor"><%=@daum_news.at(index).press%></div>
+            <p><%=@daum_news.at(index).content%></p>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary"><%=@daum_date_crwal.at(index)%></span>
+            <span class="text-primary"><%=@daum_news.at(index).date.strftime("%Y-%m-%d")%></span>
           </div>
         </div>
         <%end%>
@@ -81,12 +81,12 @@
         <%for index in 0..(@len.to_i-1)%>
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
           <div class="resume-content">
-             <h5 class="mb-0" onclick="window.open('<%=@naver_url_crwal.at(index)%>', '_blank')"><%=@naver_title_crwal.at(index)%></h5>
-            <div class="subheading cor"><%=@naver_cor_crwal.at(index)%></div>
-            <p><%=@naver_content_crwal.at(index)%></p>
+             <h5 class="mb-0" onclick="window.open('<%=@naver_news.at(index).url%>', '_blank')"><%=@naver_news.at(index).title%></h5>
+            <div class="subheading cor"><%=@naver_news.at(index).press%></div>
+            <p><%=@naver_news.at(index).content%></p>
           </div>
           <div class="resume-date text-md-right">
-            <span class="text-primary"><%=@naver_date_crwal.at(index)%></span>
+            <span class="text-primary"><%=@naver_news.at(index).date.strftime("%Y-%m-%d")%></span>
           </div>
         </div>
         <%end%>

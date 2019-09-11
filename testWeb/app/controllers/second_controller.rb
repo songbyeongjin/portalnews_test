@@ -11,9 +11,7 @@ DATE_BOUNDARY_STR = "2019"#<!年が経つと要変更
 
 #dateパラメーターが現在日・時間より遅く設定されると現在日・時間に繋がるため、2099年99月99日に設定する
 NATE_URL = "https://news.nate.com/rank/interest?sc=all&p=day&date=20999999"
-
 DAUM_URL = "https://media.daum.net/ranking/popular/"
-
 #naver HTML DOM構想の問題で、全年齢のRANKING NEWSが表示されないため、30代のデータを収集
 NAVER_URL = "https://news.naver.com/main/ranking/popularDay.nhn?rankingType=age&subType=30"
 
@@ -36,19 +34,15 @@ class SecondController < ApplicationController
             news.url       = url
             news.title     = get_nate_title(doc)
             news.content   = get_nate_content(doc)
-            news.date      = get_nate_date(doc)
             news.press     = get_nate_cor(doc)
+            news.date      = get_nate_date(doc)
             #add nate news
             nate_news.push(news)
         end
         @nate_news = nate_news
         
         ###################################################DAUM#############################################
-        daum_crwal_title = []       #<!記事タイトル
-        daum_crwal_url = []         #<!記事URL
-        daum_crwal_content = []     #<!記事の本文
-        daum_crwal_cor = []         #<!取材社名
-        daum_crwal_date = []        #<!記事の日付
+        daum_news = []
 
         #get 記事URL and 取材社名
         urlCor = get_daum_url_cor(DAUM_URL)
@@ -56,63 +50,38 @@ class SecondController < ApplicationController
         daum_crwal_cor = urlCor[1]
 
         for index in 0..NEWS_LEN
-            doc = Nokogiri::HTML(open(daum_crwal_url.at(index)))
-            daum_crwal_title.push(get_daum_title(doc))
-            daum_crwal_date.push(get_daum_date(doc))
-            daum_crwal_content.push(get_daum_content(doc))
+            news = News.new
+
+            news.url = daum_crwal_url.at(index)
+
+            doc = Nokogiri::HTML(open(news.url))
+            news.title   = get_daum_title(doc)
+            news.content = get_daum_content(doc)
+            news.press   = daum_crwal_cor.at(index)
+            news.date    = get_daum_date(doc)
+            #add daum news
+            daum_news.push(news)
         end
-        @daum_title_crwal   =   daum_crwal_title
-        @daum_cor_crwal     =   daum_crwal_cor
-        @daum_date_crwal    =   daum_crwal_date
-        @daum_url_crwal     =   daum_crwal_url
-        @daum_content_crwal =   daum_crwal_content
+
+        @daum_news = daum_news
 
         ###################################################NAVER#############################################
-        naver_crwal_title = []       #<!記事タイトル
-        naver_crwal_url = []         #<!記事URL
-        naver_crwal_content = []     #<!記事の本文
-        naver_crwal_cor = []         #<!取材社名
-        naver_crwal_date = []        #<!記事の日付
+        naver_news = []
 
-        naver_url_prefix = "https://news.naver.com"
-        del_str = "// flash 오류를 우회하기 위한 함수 추가\nfunction _flash_removeCallback() {}"
-        cor_date_boundary = 3
-
-        doc = Nokogiri::HTML(open(NAVER_URL))
-        doc.css('.ranking_list li').each do |element|
-            #URL抽出
-            naver_crwal_url.push(naver_url_prefix + element.css('a').first["href"])
-        end
+        naver_crwal_url = get_naver_url(NAVER_URL)
 
         for index in 0..NEWS_LEN-1
-            temp_content = ""
+            news = News.new
             doc = Nokogiri::HTML(open(naver_crwal_url.at(index)))
-            doc.css('#articleBodyContents').each do |element|
-                temp_content = element.text
-            end
+            news.url = naver_crwal_url.at(index)
+            news.title = get_naver_title(doc)
+            news.content = get_naver_content(doc)
+            news.press = get_naver_press(doc)
+            news.date = get_naver_date(doc)
 
-            temp_content = temp_content.gsub(del_str.encode("UTF-8"), "")
-            trimminged_content = temp_content
-            naver_crwal_content.push(trimminged_content[0..CONTENT_MAX_LEN] + NOT_END_STR)
-
-            doc.css('#articleTitle').each do |element|
-                naver_crwal_title.push(element.text)
-            end
-
-            doc.css('.t11').each do |element|
-                naver_crwal_date.push("20" + element.text[cor_date_boundary-1..9])
-            end 
-
-            doc.css('.press_logo').each do |element|
-                naver_crwal_cor.push(element.css('img').first["title"])
-            end
+            naver_news.push(news)
         end
-        @naver_title_crwal   =   naver_crwal_title
-        @naver_cor_crwal     =   naver_crwal_cor
-        @naver_date_crwal    =   naver_crwal_date
-        @naver_url_crwal     =   naver_crwal_url
-        @naver_content_crwal =   naver_crwal_content
-
+        @naver_news = naver_news
         @len = 5
     end
 
@@ -199,7 +168,8 @@ class SecondController < ApplicationController
             cor_date_boundary = element.text.index(DATE_BOUNDARY_STR)
             daum_crwal_date = element.text[cor_date_boundary..12]
         end
-        return daum_crwal_date
+        date = DateTime.parse(daum_crwal_date)
+        return date
     end
     
     def get_daum_content(doc)
@@ -215,6 +185,7 @@ class SecondController < ApplicationController
     end
 
     def get_naver_url(naver_url)
+        naver_url_prefix = "https://news.naver.com"
         naver_crwal_url = []
         doc = Nokogiri::HTML(open(naver_url))
         doc.css('.ranking_list li').each do |element|
@@ -222,6 +193,47 @@ class SecondController < ApplicationController
             naver_crwal_url.push(naver_url_prefix + element.css('a').first["href"])
         end
         return naver_crwal_url
+    end
+
+    def get_naver_title(doc)
+        naver_crwal_title = ""
+        doc.css('#articleTitle').each do |element|
+            naver_crwal_title = element.text
+        end
+        return naver_crwal_title
+    end
+
+    def get_naver_content(doc)
+        naver_crwal_content = ""
+        temp_content = ""
+        del_str = "// flash 오류를 우회하기 위한 함수 추가\nfunction _flash_removeCallback() {}"
+
+        doc.css('#articleBodyContents').each do |element|
+            temp_content = element.text
+        end
+
+        temp_content = temp_content.gsub(del_str.encode("UTF-8"), "")
+        trimminged_content = temp_content
+        naver_crwal_content = trimminged_content[0..CONTENT_MAX_LEN] + NOT_END_STR
+        return naver_crwal_content
+    end
+
+    def get_naver_press(doc)
+        naver_crwal_cor = ""
+        doc.css('.press_logo').each do |element|
+            naver_crwal_cor = element.css('img').first["title"]
+        end
+        return naver_crwal_cor
+    end
+
+    def get_naver_date(doc)
+        naver_crwal_date = ""
+        cor_date_boundary = 3
+        doc.css('.t11').each do |element|
+            naver_crwal_date = "20" + element.text[cor_date_boundary-1..9]
+        end 
+        date = DateTime.parse(naver_crwal_date)
+        return date
     end
 
     def naterefresh
