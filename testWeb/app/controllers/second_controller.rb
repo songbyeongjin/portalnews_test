@@ -17,14 +17,18 @@ NAVER_URL = "https://news.naver.com/main/ranking/popularDay.nhn?rankingType=age&
 
 class SecondController < ApplicationController
     def index
+
+    end
+
+    def kr
         ###################################################NATE#############################################
         nate_crwal_url = []         #<!記事URL
         nate_url_prefix = "https:"
         nate_news = []
-
+    
         #nate url取得
         nate_crwal_url = get_nate_url(NATE_URL)
-
+    
         for index in 0..NEWS_LEN-1
             #create temp nate news instance
             news = News.new
@@ -43,17 +47,17 @@ class SecondController < ApplicationController
         
         ###################################################DAUM#############################################
         daum_news = []
-
+    
         #get 記事URL and 取材社名
         urlCor = get_daum_url_cor(DAUM_URL)
         daum_crwal_url = urlCor[0]
         daum_crwal_cor = urlCor[1]
-
+    
         for index in 0..NEWS_LEN
             news = News.new
-
+    
             news.url = daum_crwal_url.at(index)
-
+    
             doc = Nokogiri::HTML(open(news.url))
             news.title   = get_daum_title(doc)
             news.content = get_daum_content(doc)
@@ -62,14 +66,14 @@ class SecondController < ApplicationController
             #add daum news
             daum_news.push(news)
         end
-
+    
         @daum_news = daum_news
-
+    
         ###################################################NAVER#############################################
         naver_news = []
-
+    
         naver_crwal_url = get_naver_url(NAVER_URL)
-
+    
         for index in 0..NEWS_LEN-1
             news = News.new
             doc = Nokogiri::HTML(open(naver_crwal_url.at(index)))
@@ -78,12 +82,15 @@ class SecondController < ApplicationController
             news.content = get_naver_content(doc)
             news.press = get_naver_press(doc)
             news.date = get_naver_date(doc)
-
+    
             naver_news.push(news)
         end
         @naver_news = naver_news
+    
+    
         @len = 5
     end
+
 
     def get_nate_url(nate_url)
         nate_crwal_url = []
@@ -166,10 +173,16 @@ class SecondController < ApplicationController
         daum_crwal_date = ""
         doc.css('.info_view span:nth-child(2)').each do |element|
             cor_date_boundary = element.text.index(DATE_BOUNDARY_STR)
-            daum_crwal_date = element.text[cor_date_boundary..12]
+            daum_crwal_date = element.text[cor_date_boundary..12] 
         end
-        date = DateTime.parse(daum_crwal_date)
-        return date
+        #daum記事のdateが取得できない場合はデフォルトとして、当日の日付を利用する
+        if daum_crwal_date == ""
+            date = DateTime.now
+            return date
+        else
+            date = DateTime.parse(daum_crwal_date.gsub(".",""))
+            return date
+        end
     end
     
     def get_daum_content(doc)
