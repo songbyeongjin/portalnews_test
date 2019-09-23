@@ -47,3 +47,5 @@ production:
   pool: 5
   username: song
   password: portalnews
+
+  test

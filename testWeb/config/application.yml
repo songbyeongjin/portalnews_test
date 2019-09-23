@@ -1,5 +1,0 @@
-## PostgreSQL
-DB_NAME: "portalnews" 
-RDS_End_Point: "portalnews.cmoc8qaengzg.ap-northeast-1.rds.amazonaws.com"
-RDS_MASTER_NAME: "song" 
-RDS_PASSWORD: "portalnews" 
