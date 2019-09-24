@@ -3,6 +3,8 @@ import requests
 import os
 import psycopg2
 import datetime
+import time
+import pytz
 
 #NEWS CLASS
 class News:
@@ -69,20 +71,47 @@ def handler(event, context):
 
         insert_url       = crawled_nate_url
         #news.title     = get_nate_title(doc)
+        insert_title     = "title2"
         #news.content   = get_nate_content(doc)
+        insert_content   = "content"
         #news.press     = get_nate_cor(doc)
+        insert_press     = "press"
         #news.date      = get_nate_date(doc)
-        insert_create_time = datetime.datetime.now()
+        insert_wrtier = "writer"
+        
+
+        tz = pytz.timezone("US/Pacific")
+        timestamp = tz.localize(datetime(2015, 05, 20, 13, 56, 02), is_dst=None)
+
+
+        insert_date = timestamp
+        insert_portal = "portal"
+        insert_create_time = now
         print(insert_create_time)
-        insert_updated_time = datetime.datetime.now()
+        insert_updated_time = now
+
+
+        
+
+        sql = f"INSERT INTO news (id, title, content, press, writer, date, url, portal, created_at, updated_at)\n"
+        sql = sql + f"VALUES(default, '{insert_title}' ,'{insert_content}', '{insert_press}', '{insert_wrtier}', '{timestamp}',"
+        sql = sql + f"{repr(insert_url)}, '{insert_portal}', '{timestamp}', '{timestamp}');"
+
+        print(sql)
+
 
         #create nate news
-        #cur.execute(sql, (value1,value2))
-        #get record's id
-        #id = cur.fetchone()[0]
-        #database commit
-        #conn.commit()
-        #nate_news.push(news)
+        db_conn = psycopg2.connect(
+            host =os.environ['host'],
+            dbname=os.environ['database'],
+            user=os.environ['username'],
+            password=os.environ['password'],
+            port=os.environ['port'])
+        
+        cursor = db_conn.cursor()
+        cursor.execute(sql,())
+        cursor.commit()
+        cursor.close()
 
 
 def get_nate_url(nate_url):
