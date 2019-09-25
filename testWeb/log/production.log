@@ -1,0 +1,21 @@
+D, [2019-09-21T11:44:14.670157 #32992] DEBUG -- :   [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+D, [2019-09-21T11:44:14.701362 #32992] DEBUG -- :   [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+D, [2019-09-21T11:44:14.717651 #32992] DEBUG -- :   [1m[35m (7.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6742615597034181165)[0m
+D, [2019-09-21T11:44:14.752877 #32992] DEBUG -- :   [1m[35m (8.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2019-09-21T11:44:14.755536 #32992]  INFO -- : Migrating to CreateNews (20190910140743)
+D, [2019-09-21T11:44:14.771876 #32992] DEBUG -- :   [1m[35m (9.4ms)[0m  [1m[35mBEGIN[0m
+D, [2019-09-21T11:44:14.781760 #32992] DEBUG -- :   [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "news" ("id" bigserial primary key, "title" character varying, "content" text, "press" character varying, "writer" character varying, "date" timestamp, "url" text, "portal" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+D, [2019-09-21T11:44:14.790093 #32992] DEBUG -- :   [1m[35m (7.9ms)[0m  [1m[31mROLLBACK[0m
+D, [2019-09-21T11:44:14.798212 #32992] DEBUG -- :   [1m[35m (7.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6742615597034181165)[0m
+D, [2019-09-21T11:52:36.663480 #33540] DEBUG -- :   [1m[35m (15.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6742615597034181165)[0m
+D, [2019-09-21T11:52:36.722913 #33540] DEBUG -- :   [1m[35m (16.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2019-09-21T11:52:36.725588 #33540]  INFO -- : Migrating to CreateNews (20190910140743)
+D, [2019-09-21T11:52:36.747311 #33540] DEBUG -- :   [1m[35m (14.4ms)[0m  [1m[35mBEGIN[0m
+D, [2019-09-21T11:52:36.769436 #33540] DEBUG -- :   [1m[35m (21.7ms)[0m  [1m[35mCREATE TABLE "news" ("id" bigserial primary key, "title" character varying, "content" text, "press" character varying, "writer" character varying, "date" timestamp, "url" text, "portal" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+D, [2019-09-21T11:52:36.824464 #33540] DEBUG -- :   [1m[36mprimary::SchemaMigration Create (19.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190910140743"]]
+D, [2019-09-21T11:52:36.841080 #33540] DEBUG -- :   [1m[35m (16.1ms)[0m  [1m[35mCOMMIT[0m
+D, [2019-09-21T11:52:36.905148 #33540] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (15.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2019-09-21T11:52:36.943998 #33540] DEBUG -- :   [1m[35m (14.2ms)[0m  [1m[35mBEGIN[0m
+D, [2019-09-21T11:52:36.959486 #33540] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (14.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "production"], ["created_at", "2019-09-21 02:52:36.929079"], ["updated_at", "2019-09-21 02:52:36.929079"]]
+D, [2019-09-21T11:52:36.974817 #33540] DEBUG -- :   [1m[35m (14.7ms)[0m  [1m[35mCOMMIT[0m
+D, [2019-09-21T11:52:36.989883 #33540] DEBUG -- :   [1m[35m (14.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6742615597034181165)[0m
