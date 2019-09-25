@@ -4,7 +4,7 @@ import os
 import psycopg2
 import datetime
 import time
-import pytz
+import re
 
 #NEWS CLASS
 class News:
@@ -38,7 +38,8 @@ NOT_END_STR = "[MORE...]"
 
 CONTENT_MAX_LEN = 200
 NEWS_LEN = 5
-DATE_BOUNDARY_STR = "2019"#<!年が経つと要変更
+CURRENT_YEAR = "2019"#<!年が経つと要変更
+NATE ="nate"
 
 #dateパラメーターが現在日・時間より遅く設定されると現在日・時間に繋がるため、2099年99月99日に設定する
 NATE_URL = "https://news.nate.com/rank/interest?sc=all&p=day&date=20999999"
@@ -64,54 +65,44 @@ def handler(event, context):
         #create temp nate news instance
 
         crawled_nate_url = nate_url_prefix + nate_crawl_url[index]
-        print(crawled_nate_url)
 
         response = requests.get(crawled_nate_url)
+        
+        #html content取得
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        insert_url       = crawled_nate_url
-        #news.title     = get_nate_title(doc)
-        insert_title     = "title2"
-        #news.content   = get_nate_content(doc)
-        insert_content   = "content"
-        #news.press     = get_nate_cor(doc)
-        insert_press     = "press"
-        #news.date      = get_nate_date(doc)
-        insert_wrtier = "writer"
         
+        #DB挿入用レコード作成
+        insert_title   = get_nate_title(soup)
+        insert_content = get_nate_content(soup)
+        insert_press   = get_nate_press(soup)
+        insert_wrtier  = "writer"
+        insert_url     = crawled_nate_url#!<urlは予め取得しておいた値を使用する
+        insert_portal  = NATE
+        insert_date    = get_nate_date(soup)
+        now_date = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+        insert_create_time = now_date
+        insert_updated_time = now_date
 
-        tz = pytz.timezone("US/Pacific")
-        timestamp = tz.localize(datetime(2015, 05, 20, 13, 56, 02), is_dst=None)
-
-
-        insert_date = timestamp
-        insert_portal = "portal"
-        insert_create_time = now
-        print(insert_create_time)
-        insert_updated_time = now
-
-
-        
-
+        #INSERT query作成
+        #reprメソッドを使うと自動的に「''」に囲まれるので「''」省略する
         sql = f"INSERT INTO news (id, title, content, press, writer, date, url, portal, created_at, updated_at)\n"
-        sql = sql + f"VALUES(default, '{insert_title}' ,'{insert_content}', '{insert_press}', '{insert_wrtier}', '{timestamp}',"
-        sql = sql + f"{repr(insert_url)}, '{insert_portal}', '{timestamp}', '{timestamp}');"
-
-        print(sql)
-
+        sql = sql + f"VALUES(default, {repr(insert_title)} ,'{insert_content}', '{insert_press}', '{insert_wrtier}', '{insert_date}'::timestamptz,"
+        sql = sql + f"{repr(insert_url)}, '{insert_portal}', '{insert_create_time}'::timestamptz, '{insert_updated_time}'::timestamptz);"
 
         #create nate news
         db_conn = psycopg2.connect(
-            host =os.environ['host'],
-            dbname=os.environ['database'],
-            user=os.environ['username'],
-            password=os.environ['password'],
-            port=os.environ['port'])
+            host     = os.environ['host'],
+            dbname   = os.environ['database'],
+            user     = os.environ['username'],
+            password = os.environ['password'],
+            port     = os.environ['port'])
         
         cursor = db_conn.cursor()
         cursor.execute(sql,())
-        cursor.commit()
+        db_conn.commit()
         cursor.close()
+        db_conn.close()
 
 
 def get_nate_url(nate_url):
@@ -123,44 +114,53 @@ def get_nate_url(nate_url):
     urls = soup.select(".mlt01 a")
     for url in urls:
         nate_crawl_url.append(url.get('href'))
+        
     return nate_crawl_url
 
-'''
-def get_nate_title(doc)
-    temp_title = ""
-    doc.css('.articleSubecjt').each do |element|
-        temp_title = element.text[0..-1]#<!2行にならないように文字制限
-    end
-    return temp_title
-end
 
-def get_nate_content(doc)
-    temp_contents = []
-    doc.css('#realArtcContents').each do |element|
-        temp_content = element.text.squish#0..CONTENT_MAX_LEN]#<!"¥n"を削除し、文字数を制限する
-        temp_contents.push(temp_content)
-    end
-    #リストを文字列に型変換
-    trimminged_content = temp_contents.join
-    trimminged_content = trimminged_content[0..CONTENT_MAX_LEN] + NOT_END_STR
-    return trimminged_content
-end
+def get_nate_title(soup):
+    nate_crawl_title = ""
+    
+    title = soup.select(".articleSubecjt")
+    #replaceの３番目の値はtitleの最大文字数に指定する(変換文字の数を定める)
+    #「'」文字がDBに保存する際に、フィールドの識別子になるため、文字変換を行う
+    nate_crawl_title = title[0].text.replace("\'", "`", 100)
+    
+    return nate_crawl_title
 
-def get_nate_date(doc)
-    temp_date = ""
-    doc.css('.firstDate em').each do |element|
-        temp_date = element.text
-    end
-    cor_date_boundary = temp_date.index(DATE_BOUNDARY_STR)
-    date = DateTime.parse(temp_date[cor_date_boundary..9])
-    return date
-end
 
-def get_nate_cor(doc)
-    temp_cor = ""
-    doc.css('.articleInfo .medium').each do |element|
-        temp_cor = element.text
-    end
-    return temp_cor
-end
-'''
+def get_nate_content(soup):
+    nate_crawl_content = ""
+
+    contents = soup.select("#realArtcContents")
+
+    content = contents[0].text
+
+    #文字制限及び続き文字挿入
+    nate_crawl_content = content[:CONTENT_MAX_LEN] + NOT_END_STR
+    #全ての空白・改行文字削除
+    nate_crawl_content = nate_crawl_content.split()
+    nate_crawl_content = " ".join(nate_crawl_content)
+    #「'」文字がDBに保存する際に、フィールドの識別子になるため、文字変換を行う
+    nate_crawl_content = nate_crawl_content.replace("\'", "`", 100)
+    
+    return nate_crawl_content
+
+
+def get_nate_press(soup):
+    nate_crawl_press = ""
+
+    press = soup.select('.articleInfo .medium')
+    nate_crawl_press = press[0].text
+
+    return nate_crawl_press
+
+
+def get_nate_date(soup):
+    date = soup.select('.firstDate em')
+    temp_date = date[0].text
+
+    temp_date = temp_date[:9]
+    nate_crawl_date = datetime.datetime.strptime(temp_date, "%y-%m-%d")
+
+    return nate_crawl_date
