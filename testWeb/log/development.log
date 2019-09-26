@@ -47371,3 +47371,10 @@ Completed 200 OK in 134022ms (Views: 50.1ms | ActiveRecord: 0.0ms | Allocations:
 Completed 200 OK in 154930ms (Views: 98.8ms | ActiveRecord: 0.0ms | Allocations: 1925366)
 
 
+Started GET "/second/kr" for ::1 at 2019-09-26 23:11:12 +0900
+Processing by SecondController#kr as HTML
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 35.4ms | Allocations: 8974)
+Completed 200 OK in 113331ms (Views: 65.9ms | ActiveRecord: 0.0ms | Allocations: 84490)
+
+
