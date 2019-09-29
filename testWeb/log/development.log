@@ -47378,3 +47378,878 @@ Processing by SecondController#kr as HTML
 Completed 200 OK in 113331ms (Views: 65.9ms | ActiveRecord: 0.0ms | Allocations: 84490)
 
 
+Started GET "/second/index" for ::1 at 2019-09-28 10:18:39 +0900
+Started GET "/second/index" for ::1 at 2019-09-28 10:18:41 +0900
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 93.9ms | Allocations: 8764)
+Completed 200 OK in 191ms (Views: 154.9ms | ActiveRecord: 0.0ms | Allocations: 16573)
+
+
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 145.4ms | Allocations: 8444)
+Completed 200 OK in 178ms (Views: 175.3ms | ActiveRecord: 0.0ms | Allocations: 14978)
+
+
+Started GET "/korea_flag.png" for ::1 at 2019-09-28 10:18:42 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-09-28 10:18:44 +0900
+Processing by SecondController#kr as HTML
+Started GET "/korea_flag.png" for ::1 at 2019-09-28 10:18:44 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 23.1ms | Allocations: 8963)
+Completed 200 OK in 35319ms (Views: 46.0ms | ActiveRecord: 0.0ms | Allocations: 134617)
+
+
+Started GET "/second/kr" for ::1 at 2019-09-28 10:19:34 +0900
+Processing by SecondController#kr as HTML
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 20.0ms | Allocations: 8943)
+Completed 200 OK in 28729ms (Views: 46.0ms | ActiveRecord: 0.0ms | Allocations: 76882)
+
+
+Started GET "/second/kr" for ::1 at 2019-09-28 10:32:24 +0900
+Started GET "/second/kr" for ::1 at 2019-09-28 10:32:25 +0900
+Started GET "/second/kr" for ::1 at 2019-09-28 10:32:25 +0900
+Processing by SecondController#kr as HTML
+Processing by SecondController#kr as HTML
+Processing by SecondController#kr as HTML
+Started GET "/second/kr" for ::1 at 2019-09-29 13:55:06 +0900
+Started GET "/second/kr" for ::1 at 2019-09-29 13:55:06 +0900
+Completed   in 98557696ms (ActiveRecord: 0.0ms | Allocations: 117243)
+
+
+Completed   in 98557745ms (ActiveRecord: 0.0ms | Allocations: 118051)
+
+
+Completed   in 98557398ms (ActiveRecord: 0.0ms | Allocations: 115150)
+
+
+Started GET "/second/kr" for ::1 at 2019-09-29 13:55:47 +0900
+  [1m[35m (55.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (62.4ms)[0m  [1m[34mSELECT "news".* FROM "news" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  Rendering second/kr.erb within layouts/application
+Started GET "/second/kr" for ::1 at 2019-09-29 13:56:01 +0900
+  Rendered second/kr.erb within layouts/application (Duration: 1570.3ms | Allocations: 1534050)
+Completed 500 Internal Server Error in 12930ms (ActiveRecord: 320.5ms | Allocations: 1597428)
+
+
+  
+ActionView::Template::Error (undefined method `at' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (34.4ms)[0m  [1m[34mSELECT "news".* FROM "news" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 13.2ms | Allocations: 9639)
+Completed 500 Internal Server Error in 9425ms (ActiveRecord: 86.3ms | Allocations: 104700)
+
+
+  
+ActionView::Template::Error (undefined method `at' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Started GET "/second/kr" for ::1 at 2019-09-29 13:56:54 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (35.8ms)[0m  [1m[34mSELECT "news".* FROM "news" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 30.8ms | Allocations: 9020)
+Completed 200 OK in 8189ms (Views: 59.9ms | ActiveRecord: 140.3ms | Allocations: 75261)
+
+
+Started GET "/second/kr" for ::1 at 2019-09-29 14:01:21 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (84.6ms)[0m  [1m[34mSELECT "news".* FROM "news" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 25.0ms | Allocations: 8999)
+Completed 200 OK in 11182ms (Views: 45.7ms | ActiveRecord: 84.6ms | Allocations: 67317)
+
+
+Started GET "/second/kr" for ::1 at 2019-09-29 14:02:07 +0900
+Processing by SecondController#kr as HTML
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 13.8ms | Allocations: 8950)
+Completed 200 OK in 14926ms (Views: 25.3ms | ActiveRecord: 150.9ms | Allocations: 84811)
+
+
+Started GET "/second/kr" for ::1 at 2019-09-29 22:26:29 +0900
+  [1m[35m (8.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (8.3ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 1]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 1235.4ms | Allocations: 1532614)
+Completed 500 Internal Server Error in 22637ms (ActiveRecord: 69.0ms | Allocations: 1596517)
+
+
+  
+ActionView::Template::Error (undefined method `at' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Started GET "/second/kr" for ::1 at 2019-09-29 22:27:05 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (11.0ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 12.3ms | Allocations: 9636)
+Completed 500 Internal Server Error in 20372ms (ActiveRecord: 43.3ms | Allocations: 69233)
+
+
+  
+ActionView::Template::Error (undefined method `url' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Started GET "/second/kr" for ::1 at 2019-09-29 22:28:07 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (7.2ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:28:32 +0900
+  [1m[36mCACHE News Load (0.0ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:95:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 12.2ms | Allocations: 9622)
+Completed 500 Internal Server Error in 33115ms (ActiveRecord: 37.3ms | Allocations: 50699)
+
+
+  
+ActionView::Template::Error (undefined method `url' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (8.5ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  [1m[36mNews Load (13.2ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:95:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 15.0ms | Allocations: 9622)
+Completed 500 Internal Server Error in 22382ms (ActiveRecord: 305.3ms | Allocations: 47215)
+
+
+  
+ActionView::Template::Error (undefined method `url' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Started GET "/second/kr" for ::1 at 2019-09-29 22:32:15 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (8.9ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  [1m[36mNews Load (218.5ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 14.6ms | Allocations: 9616)
+Completed 500 Internal Server Error in 12954ms (ActiveRecord: 257.1ms | Allocations: 46913)
+
+
+  
+ActionView::Template::Error (undefined method `url' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Started GET "/second/kr" for ::1 at 2019-09-29 22:33:17 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (10.5ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  [1m[36mNews Load (8.6ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 30.2ms | Allocations: 9616)
+Completed 500 Internal Server Error in 32149ms (ActiveRecord: 253.8ms | Allocations: 47168)
+
+
+  
+ActionView::Template::Error (undefined method `url' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Started GET "/second/kr" for ::1 at 2019-09-29 22:34:34 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (7.0ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+Completed 500 Internal Server Error in 348ms (ActiveRecord: 16.7ms | Allocations: 4525)
+
+
+  
+NoMethodError (undefined method `url' for nil:NilClass):
+  
+app/controllers/second_controller.rb:50:in `kr'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:35:43 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (9.7ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+Completed 500 Internal Server Error in 1015ms (ActiveRecord: 24.0ms | Allocations: 4527)
+
+
+  
+NoMethodError (undefined method `url' for nil:NilClass):
+  
+app/controllers/second_controller.rb:50:in `kr'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:36:44 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (9.6ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+Completed 500 Internal Server Error in 1107ms (ActiveRecord: 229.8ms | Allocations: 4571)
+
+
+  
+NoMethodError (undefined method `press' for nil:NilClass
+Did you mean?  presence):
+  
+app/controllers/second_controller.rb:50:in `kr'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:37:53 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (10.8ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  [1m[36mNews Load (8.9ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."press" = $1 LIMIT $2[0m  [["press", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 11.5ms | Allocations: 9622)
+Completed 500 Internal Server Error in 24701ms (ActiveRecord: 395.3ms | Allocations: 47048)
+
+
+  
+ActionView::Template::Error (undefined method `url' for nil:NilClass):
+    65:     <%for index in 0..(@len.to_i-1)%>
+    66:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    67:       <div class="resume-content">
+    68:         <h5 class="mb-0" onclick="window.open('<%=@nate_news.at(index).url%>', '_blank')"><%=@nate_news.at(index).title%></h5>
+    69:         <div class="subheading cor"><%=@nate_news.at(index).press%></div>
+    70:         <p><%=@nate_news.at(index).content%></p>
+    71:       </div>
+  
+app/views/second/kr.erb:68
+app/views/second/kr.erb:65
+Started GET "/second/kr" for ::1 at 2019-09-29 22:38:54 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (509.9ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  [1m[36mNews Load (16.7ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 25.1ms | Allocations: 10005)
+Completed 500 Internal Server Error in 12412ms (ActiveRecord: 567.4ms | Allocations: 47548)
+
+
+  
+ActionView::Template::Error (undefined method `url' for nil:NilClass):
+    103:     <%for index in 0..(@len.to_i-1)%>
+    104:     <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-2">
+    105:       <div class="resume-content">
+    106:          <h5 class="mb-0" onclick="window.open('<%=@naver_news.at(index).url%>', '_blank')"><%=@naver_news.at(index).title%></h5>
+    107:         <div class="subheading cor"><%=@naver_news.at(index).press%></div>
+    108:         <p><%=@naver_news.at(index).content%></p>
+    109:       </div>
+  
+app/views/second/kr.erb:106
+app/views/second/kr.erb:103
+Started GET "/second/kr" for ::1 at 2019-09-29 22:39:30 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (17.8ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  [1m[36mNews Load (19.3ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 20.8ms | Allocations: 9063)
+Completed 200 OK in 15355ms (Views: 50.5ms | ActiveRecord: 109.0ms | Allocations: 53092)
+
+
+Started GET "/second/kr" for ::1 at 2019-09-29 22:42:36 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (938.5ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:42:41 +0900
+  [1m[36mNews Load (41.1ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 59.0ms | Allocations: 9075)
+Completed 200 OK in 13437ms (Views: 117.3ms | ActiveRecord: 1016.4ms | Allocations: 53433)
+
+
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (8.0ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  [1m[36mNews Load (9.2ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 17.7ms | Allocations: 9063)
+Completed 200 OK in 33732ms (Views: 37.6ms | ActiveRecord: 42.7ms | Allocations: 52583)
+
+
+Started GET "/second/index" for ::1 at 2019-09-29 22:43:27 +0900
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 28.7ms | Allocations: 8765)
+Completed 200 OK in 51ms (Views: 47.5ms | ActiveRecord: 0.0ms | Allocations: 15434)
+
+
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:43:27 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:43:40 +0900
+Processing by SecondController#kr as HTML
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:43:40 +0900
+  [1m[36mNews Load (18.4ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/index" for ::1 at 2019-09-29 22:43:45 +0900
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:43:45 +0900
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 77.0ms | Allocations: 8474)
+Completed 200 OK in 109ms (Views: 107.8ms | ActiveRecord: 0.0ms | Allocations: 15078)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/index" for ::1 at 2019-09-29 22:43:50 +0900
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 34.8ms | Allocations: 8439)
+Completed 200 OK in 75ms (Views: 73.9ms | ActiveRecord: 0.0ms | Allocations: 14987)
+
+
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:43:50 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:43:54 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (13.6ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:49:in `kr'
+  [1m[36mNews Load (278.1ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 16.2ms | Allocations: 9057)
+Completed 200 OK in 27290ms (Views: 30.8ms | ActiveRecord: 296.5ms | Allocations: 279392)
+
+
+  [1m[36mNews Load (9.5ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:96:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 17.5ms | Allocations: 9055)
+Completed 200 OK in 16579ms (Views: 30.1ms | ActiveRecord: 30.8ms | Allocations: 82789)
+
+
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:44:11 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:45:09 +0900
+Processing by SecondController#kr as HTML
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 19.1ms | Allocations: 8476)
+Completed 200 OK in 31115ms (Views: 42.5ms | ActiveRecord: 282.6ms | Allocations: 84245)
+
+
+Started GET "/second/index" for ::1 at 2019-09-29 22:45:48 +0900
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 25.8ms | Allocations: 8439)
+Completed 200 OK in 50ms (Views: 49.3ms | ActiveRecord: 0.0ms | Allocations: 14973)
+
+
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:45:48 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:45:50 +0900
+Processing by SecondController#kr as HTML
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:45:50 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 42.3ms | Allocations: 8485)
+Completed 200 OK in 29619ms (Views: 74.6ms | ActiveRecord: 0.0ms | Allocations: 134836)
+
+
+Started GET "/second/index" for ::1 at 2019-09-29 22:46:34 +0900
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:46:34 +0900
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 51.7ms | Allocations: 8462)
+Completed 200 OK in 88ms (Views: 82.7ms | ActiveRecord: 0.0ms | Allocations: 15137)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:46:36 +0900
+Processing by SecondController#kr as HTML
+Started GET "/korea_flag.png" for ::1 at 2019-09-29 22:46:36 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/korea_flag.png"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:46:44 +0900
+Processing by SecondController#kr as HTML
+Started GET "/second/" for ::1 at 2019-09-29 22:46:52 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/second"):
+  
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-09-29 22:46:55 +0900
+Processing by SecondController#kr as HTML
+Started GET "/second/kr" for ::1 at 2019-09-29 22:46:59 +0900
+Processing by SecondController#kr as HTML
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 17.0ms | Allocations: 8956)
+Completed 200 OK in 30413ms (Views: 49.0ms | ActiveRecord: 25.3ms | Allocations: 269186)
+
+
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 9.9ms | Allocations: 8948)
+Completed 200 OK in 30054ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 264670)
+
+
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 11.3ms | Allocations: 8948)
+Completed 200 OK in 21985ms (Views: 23.8ms | ActiveRecord: 0.0ms | Allocations: 218458)
+
+
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 24.1ms | Allocations: 8966)
+Completed 200 OK in 28217ms (Views: 58.5ms | ActiveRecord: 0.0ms | Allocations: 275841)
+
+
+Started GET "/second/kr" for ::1 at 2019-09-29 22:47:31 +0900
+Processing by SecondController#kr as HTML
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 16.2ms | Allocations: 8952)
+Completed 200 OK in 37928ms (Views: 29.5ms | ActiveRecord: 0.0ms | Allocations: 77344)
+
+

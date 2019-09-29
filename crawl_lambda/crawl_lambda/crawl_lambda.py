@@ -48,6 +48,7 @@ def handler(event, context):
     sql_get_id = "select max(id) from news"
     #NEWS挿入時に使用するレコードのKEYであるID取得
     cursor.execute(sql_get_id,())
+    #現在DB上の最大ID、DBにレコードが０件の場合はNoneが入る
     max_id = cursor.fetchall()[0][0]
     #レコードが0件の場合
     if max_id is None:

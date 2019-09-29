@@ -28,22 +28,27 @@ class SecondController < ApplicationController
     
         #nate url取得
         nate_crwal_url = get_nate_url(NATE_URL)
-    
-        for index in 0..NEWS_LEN-1
-            #create temp nate news instance
-            news = News.new
-            url = nate_url_prefix + nate_crwal_url.at(index)
-            puts url
-            doc = Nokogiri::HTML(open(url))
-            news.url       = url
-            news.title     = get_nate_title(doc)
-            news.content   = get_nate_content(doc)
-            news.press     = get_nate_cor(doc)
-            news.date      = get_nate_date(doc)
-            #add nate news
-            nate_news.push(news)
-        end
-        @nate_news = nate_news
+
+        
+      for index in 0..NEWS_LEN-1
+          #create temp nate news instance
+          news = News.new
+          url = nate_url_prefix + nate_crwal_url.at(index)
+          puts url
+          doc = Nokogiri::HTML(open(url))
+          news.url       = url
+          news.title     = get_nate_title(doc)
+          news.content   = get_nate_content(doc)
+          news.press     = get_nate_cor(doc)
+          news.date      = get_nate_date(doc)
+          #add nate news
+          nate_news.push(news)
+      end
+      @nate_news = nate_news
+
+      #nate_news = News.where(portal:'nate').take(NEWS_LEN)
+      #@nate_news = nate_news
+      
         
         ###################################################DAUM#############################################
         daum_news = []
@@ -86,9 +91,10 @@ class SecondController < ApplicationController
             naver_news.push(news)
         end
         @naver_news = naver_news
-    
-    
-        @len = 5
+
+        #naver_news = News.where(portal:'naver').take(NEWS_LEN)
+        #@naver_news = naver_news
+        @len = NEWS_LEN
     end
 
 
