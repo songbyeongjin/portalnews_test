@@ -48253,3 +48253,159 @@ Processing by SecondController#kr as HTML
 Completed 200 OK in 37928ms (Views: 29.5ms | ActiveRecord: 0.0ms | Allocations: 77344)
 
 
+Started GET "/second/index" for ::1 at 2019-10-04 09:50:49 +0900
+Started GET "/second/index" for ::1 at 2019-10-04 09:50:53 +0900
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 35.2ms | Allocations: 8442)
+Completed 200 OK in 80ms (Views: 71.8ms | ActiveRecord: 0.0ms | Allocations: 15102)
+
+
+Started GET "/second/kr" for ::1 at 2019-10-04 09:52:20 +0900
+Started GET "/second/kr" for ::1 at 2019-10-04 09:52:20 +0900
+Started GET "/second/kr" for ::1 at 2019-10-04 09:52:20 +0900
+Processing by SecondController#index as HTML
+  Rendering second/index.erb within layouts/application
+  Rendered second/index.erb within layouts/application (Duration: 18.0ms | Allocations: 8441)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.0ms | Allocations: 15100)
+
+
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (201.7ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:25:in `kr'
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (164.0ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:25:in `kr'
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (966.8ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:25:in `kr'
+  [1m[36mNews Load (221.6ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:53:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 29.2ms | Allocations: 9154)
+Completed 200 OK in 27719ms (Views: 43.7ms | ActiveRecord: 1295.6ms | Allocations: 67896)
+
+
+  [1m[36mNews Load (158.5ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:53:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 22.8ms | Allocations: 9149)
+Completed 200 OK in 33152ms (Views: 35.4ms | ActiveRecord: 446.6ms | Allocations: 119400)
+
+
+  [1m[36mNews Load (133.6ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:53:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 13.7ms | Allocations: 9047)
+Completed 200 OK in 36820ms (Views: 29.2ms | ActiveRecord: 1286.2ms | Allocations: 118504)
+
+
+Started GET "/second/kr" for ::1 at 2019-10-04 09:55:21 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (236.8ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:25:in `kr'
+Started GET "/second/kr" for ::1 at 2019-10-04 09:55:25 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (2148.7ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:25:in `kr'
+Completed 500 Internal Server Error in 1269984ms (ActiveRecord: 236.8ms | Allocations: 9259)
+
+
+  
+Errno::ETIMEDOUT (Failed to open TCP connection to v.media.daum.net:80 (Operation timed out - connect(2) for "v.media.daum.net" port 80)):
+  
+app/controllers/second_controller.rb:41:in `block in kr'
+app/controllers/second_controller.rb:36:in `kr'
+Completed 500 Internal Server Error in 15414160ms (ActiveRecord: 2148.7ms | Allocations: 479527)
+
+
+  
+SocketError (Failed to open TCP connection to media.daum.net:443 (getaddrinfo: nodename nor servname provided, or not known)):
+  
+app/controllers/second_controller.rb:113:in `get_daum_url_cor'
+app/controllers/second_controller.rb:32:in `kr'
+Started GET "/second/kr" for ::1 at 2019-10-04 14:13:21 +0900
+Started GET "/second/kr" for ::1 at 2019-10-04 14:13:24 +0900
+  
+ActiveRecord::NoDatabaseError (could not translate host name "portalnews.cmoc8qaengzg.ap-northeast-1.rds.amazonaws.com" to address: nodename nor servname provided, or not known
+):
+  
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:50:in `rescue in postgresql_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:33:in `postgresql_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:879:in `new_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:923:in `checkout_new_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:902:in `try_to_checkout_new_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:863:in `acquire_connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:587:in `checkout'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:431:in `connection'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:1111:in `retrieve_connection'
+activerecord (6.0.0) lib/active_record/connection_handling.rb:231:in `retrieve_connection'
+activerecord (6.0.0) lib/active_record/connection_handling.rb:199:in `connection'
+activerecord (6.0.0) lib/active_record/migration.rb:562:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/second/kr" for ::1 at 2019-10-04 14:15:13 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (45.4ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:25:in `kr'
+  [1m[36mNews Load (28.9ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:53:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 53.1ms | Allocations: 9060)
+Completed 200 OK in 5293ms (Views: 83.3ms | ActiveRecord: 118.7ms | Allocations: 38130)
+
+
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (33.4ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:25:in `kr'
+  [1m[36mNews Load (29.6ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:53:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 27.4ms | Allocations: 9060)
+Completed 200 OK in 6204ms (Views: 50.2ms | ActiveRecord: 63.0ms | Allocations: 37983)
+
+
+Started GET "/second/kr" for ::1 at 2019-10-04 14:21:14 +0900
+Processing by SecondController#kr as HTML
+  [1m[36mNews Load (41.0ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "nate"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:25:in `kr'
+  [1m[36mNews Load (58.4ms)[0m  [1m[34mSELECT "news".* FROM "news" WHERE "news"."portal" = $1 LIMIT $2[0m  [["portal", "naver"], ["LIMIT", 5]]
+  ↳ app/controllers/second_controller.rb:53:in `kr'
+  Rendering second/kr.erb within layouts/application
+  Rendered second/kr.erb within layouts/application (Duration: 47.8ms | Allocations: 9059)
+Completed 200 OK in 8953ms (Views: 87.5ms | ActiveRecord: 99.4ms | Allocations: 38027)
+
+

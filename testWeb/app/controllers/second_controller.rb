@@ -21,35 +21,10 @@ class SecondController < ApplicationController
     end
 
     def kr
-        ###################################################NATE#############################################
-        nate_crwal_url = []         #<!記事URL
-        nate_url_prefix = "https:"
-        nate_news = []
-    
-        #nate url取得
-        nate_crwal_url = get_nate_url(NATE_URL)
-
-        
-      for index in 0..NEWS_LEN-1
-          #create temp nate news instance
-          news = News.new
-          url = nate_url_prefix + nate_crwal_url.at(index)
-          puts url
-          doc = Nokogiri::HTML(open(url))
-          news.url       = url
-          news.title     = get_nate_title(doc)
-          news.content   = get_nate_content(doc)
-          news.press     = get_nate_cor(doc)
-          news.date      = get_nate_date(doc)
-          #add nate news
-          nate_news.push(news)
-      end
-      @nate_news = nate_news
-
-      #nate_news = News.where(portal:'nate').take(NEWS_LEN)
-      #@nate_news = nate_news
+        #NATE
+        nate_news = News.where(portal:'nate').take(NEWS_LEN)
+        @nate_news = nate_news
       
-        
         ###################################################DAUM#############################################
         daum_news = []
     
@@ -74,26 +49,9 @@ class SecondController < ApplicationController
     
         @daum_news = daum_news
     
-        ###################################################NAVER#############################################
-        naver_news = []
-    
-        naver_crwal_url = get_naver_url(NAVER_URL)
-    
-        for index in 0..NEWS_LEN-1
-            news = News.new
-            doc = Nokogiri::HTML(open(naver_crwal_url.at(index)))
-            news.url = naver_crwal_url.at(index)
-            news.title = get_naver_title(doc)
-            news.content = get_naver_content(doc)
-            news.press = get_naver_press(doc)
-            news.date = get_naver_date(doc)
-    
-            naver_news.push(news)
-        end
+        #NAVER
+        naver_news = News.where(portal:'naver').take(NEWS_LEN)
         @naver_news = naver_news
-
-        #naver_news = News.where(portal:'naver').take(NEWS_LEN)
-        #@naver_news = naver_news
         @len = NEWS_LEN
     end
 
