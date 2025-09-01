@@ -153,6 +153,6 @@ def get_nate_date(soup):
 
     #文字列のうち、yyyy-mm-dd形式のみ抽出
     temp_date = temp_date[:10]
-    nate_crawl_date = datetime.datetime.strptime(temp_date, "%Y-%m-%d")
+    nate_crawl_date = datetime.datetime.strptime(temp_date, "%Y%m%d")
 
     return nate_crawl_date
