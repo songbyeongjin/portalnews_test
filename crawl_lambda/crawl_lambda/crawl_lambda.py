@@ -6,7 +6,7 @@ import datetime
         
 
 #定数定義
-NOT_END_STR = "[MORE...]"
+NOT_END_STR = "[NOT MORE]"
 
 CONTENT_MAX_LEN = 200
 NEWS_LEN = 5
